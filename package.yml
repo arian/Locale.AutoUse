@@ -1,0 +1,8 @@
+name: Locale.AutoUse
+author: astolwijk
+current: 0.1
+category: utilities
+tags: [Locale]
+
+sources:
+  - "Source/Locale.AutoUse.js"
