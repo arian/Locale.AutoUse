@@ -2,6 +2,7 @@
 ---
 name: Locale.AutoUse
 description: Automatically detects the Language on the page
+authors: Arian Stolwijk
 requires: [Core/DOMReady, Core/Element, More/Locale]
 provides: Locale.AutoUse
 ...
