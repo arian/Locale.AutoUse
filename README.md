@@ -21,9 +21,9 @@ It is possible to use Locale.AutoUse manually.
 #### Arguments
 
 - selector - (*string*, defaults `*[lang]`) Any CSS selector Slick supports
-- attributeName - (*string, defaults `lang`) The attribute name which contains the Language code.
+- attributeName - (*string*, defaults `lang`) The attribute name which contains the Language code.
 
-#### Retur
+#### Return
 
 * Locale Instance
 
