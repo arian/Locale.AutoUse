@@ -8,15 +8,25 @@ provides: Locale.AutoUse
 ...
 */
 
-Locale.AutoUse = function(selector, attr){
-	if (!selector) selector = '*[lang]';
-	if (!attr) attr = 'lang';
+Locale.AutoUse = function(selector, attr, ua){
 
-	var element = document.getElement(selector);
-	if (!element) return Locale;
+	var languages = Locale.list(),
+		lang;
 
-	var lang = element.get(attr),
-		languages = Locale.list();
+	if (selector == navigator) ua = true;
+
+	if (!ua){
+		if (!selector) selector = '*[lang]';
+		if (!attr) attr = 'lang';
+	
+		var element = document.getElement(selector);
+		if (!element) return Locale;
+	
+		lang = element.get(attr);
+	} else {
+		lang = navigator.language || navigator.userLanguage
+	}
+
 
 	if (!languages.contains(lang)){
 		for (var i = 0, l = languages.length; i < l; i++){
@@ -33,5 +43,3 @@ Locale.AutoUse = function(selector, attr){
 	return Locale.use(lang);
 
 };
-
-window.addEvent('domready', Locale.AutoUse);

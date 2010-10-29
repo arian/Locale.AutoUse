@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html>
 <head>
 	<title>Locale.AutoUse</title>
 	<script src="mootools-core.js"></script>
@@ -8,15 +8,12 @@
 
 	<script>
 
+	Locale.AutoUse(navigator);
+
 	window.addEvent('domready', function(){
-		Locale.AutoUse();
-
-		$('current').set('text', Locale.getCurrent().name);
-
 		$('date').set('text', Locale.get('Date.months')[new Date().getMonth()]);
-
-		Locale.AutoUse('div[data-lang]', 'data-lang');
-		$('minuteAgo').set('text', Locale.get('Date.minuteAgo'));
+		$('current').set('text', Locale.getCurrent().name);
+		$('languages').set('text', Locale.list().join(', '));
 	});
 
 	</script>
@@ -27,9 +24,9 @@
 	<h1>Locale.AutoUse</h1>
 
 	<p>Current language: <code id="current"></code>
-	<p>The current month, in Dutch, is: <span id="date"></span></p>
+	<p>It should tell you the current month in your language, if that language is in <code id="languages"></code></p>
 
-	<div id="minuteAgo" data-lang="en"></div>
+	<p>The current month is: <code id="date"></code></p>
 
 </body>
 </html>
